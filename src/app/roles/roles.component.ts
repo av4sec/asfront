@@ -34,22 +34,21 @@ export class RolesComponent implements OnInit {
   //   this.router.navigate(['/detail', this.selectedHero.id]);
   // }
   //
-  // add(name: string): void {
-  //   name = name.trim();
-  //   if (!name) { return; }
-  //   this.heroService.create(name)
-  //     .then(hero => {
-  //       this.heroes.push(hero);
-  //       this.selectedHero = null;
-  //     });
-  // }
-  //
-  // delete(hero: Hero): void {
-  //   this.heroService
-  //     .delete(hero.id)
-  //     .then(() => {
-  //       this.heroes = this.heroes.filter(h => h !== hero);
-  //       if (this.selectedHero === hero) { this.selectedHero = null; }
-  //     });
-  // }
+
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.roleService.create(name)
+      .then(role => {
+        this.roles.push(role);
+      });
+  }
+
+  delete(role: Role): void {
+    this.roleService
+      .delete(role.id)
+      .then(() => {
+        this.roles = this.roles.filter(r => r !== role);
+      });
+  }
 }

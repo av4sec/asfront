@@ -24,5 +24,31 @@ export class RoleService {
     return Promise.reject(error.message || error);
   }
 
+  private headers = new Headers({ 'Content-Type': 'application/json' });
+
+  create(name: string): Promise<Role> {
+    return this.http
+      .post(this.rolesUrl, JSON.stringify({ id: 0, name: name, extid: 1, charid: name.toLowerCase().replace(" ", "_").substring(0, 10) }), { headers: this.headers })
+      .toPromise()
+      .then(res => res.json().data)
+      .catch(this.handleError);
+  }
+
+  update(role: Role): Promise<Role> {
+    const url = `${this.rolesUrl}/${role.id}`;
+    return this.http
+      .put(url, JSON.stringify(role), { headers: this.headers })
+      .toPromise()
+      .then(() => role)
+      .catch(this.handleError);
+  }
+
+  delete(id: number): Promise<void> {
+    const url = `${this.rolesUrl}/${id}`;
+    return this.http.delete(url, { headers: this.headers })
+      .toPromise()
+      .then(() => null)
+      .catch(this.handleError);
+  }
 
 }
