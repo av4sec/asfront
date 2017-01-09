@@ -1,3 +1,15 @@
+# avasec simple angular typescript frontend
+
+### installation
+
+1. npm install
+2. npm start
+
+
+---------------------------------------------------------------------
+
+
+
 # Asfront
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.24.

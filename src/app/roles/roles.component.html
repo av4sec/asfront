@@ -1,0 +1,13 @@
+<h2>Roles</h2>
+<div>
+  <label>Role name:</label> <input #roleName />
+  <button (click)="add(roleName.value); roleName.value=''">
+    Add
+  </button>
+</div>
+<ul class="roles">
+  <li *ngFor="let role of roles">
+    <span class="badge">{{role.id}}</span> {{role.name}} [ {{role.extid}} / {{role.charid}} ]
+    <button class="delete" (click)="delete(role); $event.stopPropagation()">x</button>
+  </li>
+</ul>
