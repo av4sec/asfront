@@ -26,6 +26,14 @@ export class RoleService {
 
   private headers = new Headers({ 'Content-Type': 'application/json' });
 
+  getRole(id: number): Promise<Role> {
+    const url = `${this.rolesUrl}/${id}`;
+    return this.http.get(url)
+      .toPromise()
+      .then(response => response.json() as Role)
+      .catch(this.handleError);
+  }
+
   create(name: string): Promise<Role> {
     var role: Role = {
       id: 0, extid: 1, name: name,

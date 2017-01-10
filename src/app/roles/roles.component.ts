@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Role } from '../role';
 import { RoleService } from '../role.service';
@@ -8,12 +9,13 @@ import { RoleService } from '../role.service';
   templateUrl: './roles.component.html',
   styleUrls: ['./roles.component.css']
 })
+
 export class RolesComponent implements OnInit {
 
   roles: Role[];
 
   constructor(
-    //private router: Router,
+    private router: Router,
     private roleService: RoleService
   ) { }
 
@@ -25,15 +27,9 @@ export class RolesComponent implements OnInit {
     this.roleService.getRoles().then(roles => this.roles = roles);
   }
 
-
-  // onSelect(hero: Hero): void {
-  //   this.selectedHero = hero;
-  // }
-  //
-  // gotoDetail(): void {
-  //   this.router.navigate(['/detail', this.selectedHero.id]);
-  // }
-  //
+  gotoDetail(id: number): void {
+    this.router.navigate(['/detail', id]);
+  }
 
   add(name: string): void {
     name = name.trim();

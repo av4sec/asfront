@@ -1,0 +1,19 @@
+<div *ngIf="role">
+  <h2>{{role.name}} details!</h2>
+  <div>
+    <label>id: </label>{{role.id}}</div>
+    <div>
+      <label>extid: </label>
+      <input [(ngModel)]="role.extid" placeholder="name" />
+    </div>
+    <div>
+      <label>charid: </label>
+      <input [(ngModel)]="role.charid" placeholder="name" />
+    </div>
+    <div>
+      <label>name: </label>
+      <input [(ngModel)]="role.name" placeholder="name" />
+    </div>
+    <button (click)="goBack()">Back</button>
+    <button (click)="save()">Save</button>
+</div>
