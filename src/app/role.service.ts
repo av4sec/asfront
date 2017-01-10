@@ -27,10 +27,14 @@ export class RoleService {
   private headers = new Headers({ 'Content-Type': 'application/json' });
 
   create(name: string): Promise<Role> {
+    var role: Role = {
+      id: 0, extid: 1, name: name,
+      charid: name.toLowerCase().replace(" ", "_").substring(0, 10)
+    };
     return this.http
-      .post(this.rolesUrl, JSON.stringify({ id: 0, name: name, extid: 1, charid: name.toLowerCase().replace(" ", "_").substring(0, 10) }), { headers: this.headers })
+      .post(this.rolesUrl, JSON.stringify(role), { headers: this.headers })
       .toPromise()
-      .then(res => res.json().data)
+      .then(res => res.json() as Role)
       .catch(this.handleError);
   }
 
