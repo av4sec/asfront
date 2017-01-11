@@ -35,5 +35,4 @@ export class RoleDetailComponent implements OnInit {
     this.roleService.update(this.role)
       .then(() => this.goBack());
   }
-
 }
