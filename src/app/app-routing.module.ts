@@ -9,8 +9,8 @@ const routes: Routes = [
   { path: '', redirectTo: '/role', pathMatch: 'full' },
   { path: 'acode', component: AcodesComponent },
   { path: 'role', component: RolesComponent },
-  { path: 'role/:id', component: RoleDetailComponent },
-  { path: 'role/search', component: RoleSearchComponent }
+  { path: 'role/search', component: RoleSearchComponent },
+  { path: 'role/:id', component: RoleDetailComponent }
 ];
 
 @NgModule({
