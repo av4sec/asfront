@@ -9,18 +9,21 @@ import './rxjs-extensions';
 import { AppComponent } from './app.component';
 
 // import { RoleSearchComponent }  from './role-search.component';
+import { AcodeService }          from './acode.service';
 import { RoleService }          from './role.service';
 import { RoleSearchService }    from './role-search.service';
 import { RolesComponent }       from './roles/roles.component';
 import { RoleDetailComponent }  from './role-detail/role-detail.component';
 import { RoleSearchComponent }  from './role-search/role-search.component';
+import { AcodesComponent }      from './acodes/acodes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RolesComponent,
     RoleDetailComponent,
-    RoleSearchComponent
+    RoleSearchComponent,
+    AcodesComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,7 @@ import { RoleSearchComponent }  from './role-search/role-search.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [RoleService, RoleSearchService],
+  providers: [RoleService, RoleSearchService, AcodeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

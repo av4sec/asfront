@@ -55,7 +55,7 @@ export class RoleSearchComponent implements OnInit {
   }
 
   gotoDetail(role: Role): void {
-    let link = ['/detail', role.id];
+    let link = ['/role', role.id];
     this.router.navigate(link);
   }
 }

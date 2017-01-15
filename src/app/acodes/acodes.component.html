@@ -1,0 +1,5 @@
+<ul class="acodes">
+  <li *ngFor="let acode of acodes"  (click)="gotoDetail(acode.id)">
+    <span class="badge">{{acode.id}}</span> {{acode.name}} [ {{acode.extid}} / {{acode.charid}} ]
+  </li>
+</ul>

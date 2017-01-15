@@ -28,7 +28,7 @@ export class RolesComponent implements OnInit {
   }
 
   gotoDetail(id: number): void {
-    this.router.navigate(['/detail', id]);
+    this.router.navigate(['/role', id]);
   }
 
   add(name: string): void {
