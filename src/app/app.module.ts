@@ -8,8 +8,7 @@ import './rxjs-extensions';
 
 import { AppComponent } from './app.component';
 
-// import { RoleSearchComponent }  from './role-search.component';
-import { AcodeService }          from './acode.service';
+import { AcodeService }         from './acode.service';
 import { RoleService }          from './role.service';
 import { RoleSearchService }    from './role-search.service';
 import { RolesComponent }       from './roles/roles.component';
