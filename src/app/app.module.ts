@@ -4,6 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 
+import { MaterialModule } from '@angular/material';
+import 'hammerjs';
+
 import './rxjs-extensions';
 
 import { AppComponent } from './app.component';
@@ -30,7 +33,8 @@ import { RoleAcodeCtrlComponent } from './role-acode-ctrl/role-acode-ctrl.compon
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MaterialModule.forRoot()
   ],
   providers: [RoleService, RoleSearchService, AcodeService],
   bootstrap: [AppComponent]
