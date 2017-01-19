@@ -6,7 +6,5 @@
   <md-card>
      <button md-raised-button *ngFor="let link of links" (click)="onClick(link.route)">{{ link.name }}</button>
   </md-card>
-  <md-card>
-    <router-outlet></router-outlet>
-  </md-card>
+  <router-outlet></router-outlet>
 </div>

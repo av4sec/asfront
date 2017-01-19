@@ -1,13 +1,17 @@
-<h2>Roles</h2>
-<div>
-  <label>Role name:</label> <input #roleName />
-  <button (click)="add(roleName.value); roleName.value=''">
-    Add new
-  </button>
-</div>
-<ul class="roles">
-  <li *ngFor="let role of roles"  (click)="gotoDetail(role.id)">
-    <span class="badge">{{role.id}}</span> {{role.name}} [ {{role.extid}} / {{role.charid}} ]
-    <button class="delete" (click)="delete(role); $event.stopPropagation()">x</button>
-  </li>
-</ul>
+<md-card>
+  <md-card-title>Roles</md-card-title>
+  <form>
+    <md-input-container>
+      <input md-input placeholder="Role Name" #roleName >
+    </md-input-container>
+    <button md-raised-button (click)="add(roleName.value); roleName.value=''">
+      Add new
+    </button>
+  </form>
+  <ul class="roles">
+    <li *ngFor="let role of roles"  (click)="gotoDetail(role.id)">
+      <span class="badge">{{role.id}}</span> {{role.name}} [ {{role.extid}} / {{role.charid}} ]
+      <button class="delete" (click)="delete(role); $event.stopPropagation()">x</button>
+    </li>
+  </ul>
+</md-card>
