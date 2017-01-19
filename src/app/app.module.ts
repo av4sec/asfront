@@ -15,6 +15,7 @@ import { RolesComponent }       from './roles/roles.component';
 import { RoleDetailComponent }  from './role-detail/role-detail.component';
 import { RoleSearchComponent }  from './role-search/role-search.component';
 import { AcodesComponent }      from './acodes/acodes.component';
+import { RoleAcodeCtrlComponent } from './role-acode-ctrl/role-acode-ctrl.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AcodesComponent }      from './acodes/acodes.component';
     RolesComponent,
     RoleDetailComponent,
     RoleSearchComponent,
-    AcodesComponent
+    AcodesComponent,
+    RoleAcodeCtrlComponent
   ],
   imports: [
     BrowserModule,
