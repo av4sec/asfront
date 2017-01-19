@@ -1,28 +1,13 @@
-h1 {
-  font-size: 2em;
-  color: #999;
-  margin-bottom: 0;
+.app-toolbar-filler {
+  flex: 1 1 auto;
 }
-h2 {
-  font-size: 1.8em;
-  margin-top: 0;
-  padding-top: 0;
+.app-content {
+  padding: 5px;
 }
-nav a {
-  padding: 5px 10px;
-  text-decoration: none;
-  margin-top: 10px;
-  display: inline-block;
-  background-color: #eee;
-  border-radius: 4px;
+.app-content md-card {
+  margin: 5px;
 }
-nav a:visited, a:link {
-  color: #607D8B;
-}
-nav a:hover {
-  color: #039be5;
-  background-color: #CFD8DC;
-}
-nav a.active {
-  color: #039be5;
+button {
+  margin-left: 5px;
+  margin-right: 5px;
 }
