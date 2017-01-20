@@ -8,10 +8,11 @@
       Add new
     </button>
   </form>
-  <ul class="roles">
-    <li *ngFor="let role of roles"  (click)="gotoDetail(role.id)">
-      <span class="badge">{{role.id}}</span> {{role.name}} [ {{role.extid}} / {{role.charid}} ]
-      <button class="delete" (click)="delete(role); $event.stopPropagation()">x</button>
-    </li>
-  </ul>
+  <md-list class="roles">
+    <md-list-item *ngFor="let role of roles"
+         (click)="gotoDetail(role.id)">
+         <span class="badge">{{role.id}}</span><span class="text">{{role.name}} [ {{role.extid}} / {{role.charid}} ]</span>
+         <button class="delete" (click)="delete(role); $event.stopPropagation()">x</button>
+    </md-list-item>
+  </md-list>
 </md-card>
