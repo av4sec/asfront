@@ -4,10 +4,10 @@
     <input md-input placeholder="Search term" #searchBox id="search-box" value="{{initialTerm}}" autocomplete="off" autofocus
     (keyup)="search(searchBox.value)" />
   </md-input-container>
-  <div>
-    <div *ngFor="let role of roles | async"
+  <md-list>
+    <md-list-item *ngFor="let role of roles | async"
          (click)="gotoDetail(role)" class="search-result" >
-      {{role.name}}
-    </div>
-  </div>
+      <h3>{{role.name}}</h3>
+    </md-list-item>
+  </md-list>
 </md-card>
