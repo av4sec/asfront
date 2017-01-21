@@ -1,0 +1,18 @@
+<div>
+<md-card>
+  <md-card-title>Role / Access Code</md-card-title>
+  <md-card-content>
+    <md-grid-list [cols]="numberOfCols" rowHeight="60px">
+      <md-grid-tile></md-grid-tile>
+      <md-grid-tile *ngFor="let role of roles" style="background:lightgray">
+        {{ role.name }} [ {{ role.id }} ]
+      </md-grid-tile>
+      <ng-container *ngFor="let row of cells">
+        <ng-container *ngFor="let cell of row">
+            <md-grid-tile>{{ cell }}</md-grid-tile>
+        </ng-container>
+      </ng-container>
+    </md-grid-list>
+  </md-card-content>
+</md-card>
+</div>

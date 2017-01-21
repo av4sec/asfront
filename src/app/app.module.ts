@@ -3,19 +3,22 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
+import { MaterialModule } from '@angular/material';
 
 import './rxjs-extensions';
 
 import { AppComponent } from './app.component';
 
 // import { RoleSearchComponent }  from './role-search.component';
-import { AcodeService }          from './acode.service';
+import { RoleAcodeService }     from './role-acode.service';
+import { AcodeService }         from './acode.service';
 import { RoleService }          from './role.service';
 import { RoleSearchService }    from './role-search.service';
 import { RolesComponent }       from './roles/roles.component';
 import { RoleDetailComponent }  from './role-detail/role-detail.component';
 import { RoleSearchComponent }  from './role-search/role-search.component';
 import { AcodesComponent }      from './acodes/acodes.component';
+import { RoleAcodeComponent }   from './role-acode/role-acode.component';
 
 @NgModule({
   declarations: [
@@ -23,15 +26,17 @@ import { AcodesComponent }      from './acodes/acodes.component';
     RolesComponent,
     RoleDetailComponent,
     RoleSearchComponent,
-    AcodesComponent
+    AcodesComponent,
+    RoleAcodeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MaterialModule.forRoot()
   ],
-  providers: [RoleService, RoleSearchService, AcodeService],
+  providers: [RoleService, RoleSearchService, AcodeService, RoleAcodeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
