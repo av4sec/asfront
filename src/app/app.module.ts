@@ -9,7 +9,6 @@ import './rxjs-extensions';
 
 import { AppComponent } from './app.component';
 
-// import { RoleSearchComponent }  from './role-search.component';
 import { RoleAcodeService }     from './role-acode.service';
 import { AcodeService }         from './acode.service';
 import { RoleService }          from './role.service';
@@ -19,6 +18,7 @@ import { RoleDetailComponent }  from './role-detail/role-detail.component';
 import { RoleSearchComponent }  from './role-search/role-search.component';
 import { AcodesComponent }      from './acodes/acodes.component';
 import { RoleAcodeComponent }   from './role-acode/role-acode.component';
+import { RoleAcodeCtrlComponent } from './role-acode-ctrl/role-acode-ctrl.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,8 @@ import { RoleAcodeComponent }   from './role-acode/role-acode.component';
     RoleDetailComponent,
     RoleSearchComponent,
     AcodesComponent,
-    RoleAcodeComponent
+    RoleAcodeComponent,
+    RoleAcodeCtrlComponent
   ],
   imports: [
     BrowserModule,
