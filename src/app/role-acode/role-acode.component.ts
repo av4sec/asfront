@@ -10,6 +10,9 @@ import { RoleService } from '../role.service';
 import { Acode } from '../acode';
 import { AcodeService } from '../acode.service';
 
+import { RoleAcodeCell } from '../role-acode-cell';
+import { RoleAcodeCellComponent } from '../role-acode-cell/role-acode-cell.component';
+
 @Component({
   selector: 'app-role-acode',
   templateUrl: './role-acode.component.html',
@@ -25,7 +28,7 @@ export class RoleAcodeComponent implements OnInit {
   numberOfCols: number = 1;
   numberOfRows: number = 1;
 
-  cells: string[][] = [];
+  cells: RoleAcodeCell[][] = [];
 
   constructor(
     private router: Router,
@@ -41,13 +44,18 @@ export class RoleAcodeComponent implements OnInit {
   }
 
   initCells(): void {
-    for (var r = 0; r < this.numberOfRows - 1; r++) {
+    this.cells[0] = [];
+    this.cells[0][0] = new RoleAcodeCell("");
+    for (var c = 1; c < this.numberOfCols; c++) {
+      this.cells[0][c] = new RoleAcodeCell(this.roles[c-1].name + " [" + this.roles[c-1].id + "]");
+    }
+    for (var r = 1; r < this.numberOfRows; r++) {
       this.cells[r] = [];
-      this.cells[r][0] = this.acodes[r].name + " [" + this.acodes[r].id + "]";
+      this.cells[r][0] = new RoleAcodeCell(this.acodes[r-1].name + " [" + this.acodes[r-1].id + "]");
       for (var c = 1; c < this.numberOfCols; c++) {
-        var ra: string = "";
-        ra = this.roleAcodeExists(this.roles[c-1].id, this.acodes[r].id,);
-        this.cells[r][c] = ra;
+        var role_acode_exists: string = "";
+        role_acode_exists = this.roleAcodeExists(this.roles[c-1].id, this.acodes[r-1].id,);
+        this.cells[r][c] = new RoleAcodeCell(role_acode_exists);
       }
     }
   }
