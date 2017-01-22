@@ -5,7 +5,9 @@
     <md-grid-list [cols]="numberOfCols" rowHeight="60px">
       <ng-container *ngFor="let row of cells">
         <ng-container *ngFor="let cell of row">
-            <md-grid-tile><app-role-acode-cell [cell]="cell"></app-role-acode-cell></md-grid-tile>
+            <md-grid-tile>
+              <app-role-acode-cell [cell]="cell"></app-role-acode-cell>
+            </md-grid-tile>
         </ng-container>
       </ng-container>
     </md-grid-list>

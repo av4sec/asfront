@@ -10,7 +10,7 @@ import { RoleService } from '../role.service';
 import { Acode } from '../acode';
 import { AcodeService } from '../acode.service';
 
-import { RoleAcodeCell } from '../role-acode-cell';
+import { Cell, TextCell, RoleCell, AcodeCell, RoleAcodeCell } from '../role-acode-cell';
 import { RoleAcodeCellComponent } from '../role-acode-cell/role-acode-cell.component';
 
 @Component({
@@ -28,7 +28,7 @@ export class RoleAcodeComponent implements OnInit {
   numberOfCols: number = 1;
   numberOfRows: number = 1;
 
-  cells: RoleAcodeCell[][] = [];
+  cells: Cell[][] = [];
 
   constructor(
     private router: Router,
@@ -45,32 +45,38 @@ export class RoleAcodeComponent implements OnInit {
 
   initCells(): void {
     this.cells[0] = [];
-    this.cells[0][0] = new RoleAcodeCell("");
+    this.cells[0][0] = new TextCell("");
     for (var c = 1; c < this.numberOfCols; c++) {
-      this.cells[0][c] = new RoleAcodeCell(this.roles[c-1].name + " [" + this.roles[c-1].id + "]");
+      this.cells[0][c] = new RoleCell(this.roles[c-1]);
     }
     for (var r = 1; r < this.numberOfRows; r++) {
       this.cells[r] = [];
-      this.cells[r][0] = new RoleAcodeCell(this.acodes[r-1].name + " [" + this.acodes[r-1].id + "]");
+      this.cells[r][0] = new AcodeCell(this.acodes[r-1]);
       for (var c = 1; c < this.numberOfCols; c++) {
-        var role_acode_exists: string = "";
-        role_acode_exists = this.roleAcodeExists(this.roles[c-1].id, this.acodes[r-1].id,);
-        this.cells[r][c] = new RoleAcodeCell(role_acode_exists);
+        var role_id: number = this.roles[c-1].id;
+        var acode_id: number = this.acodes[r-1].id;
+        var role_acode_exists: boolean;
+        role_acode_exists = this.roleAcodeExists(role_id, acode_id);
+        this.cells[r][c] = new RoleAcodeCell(role_id, acode_id, role_acode_exists);
       }
     }
   }
 
-  roleAcodeExists(role_id: number, acode_id: number): string {
+  roleAcodeExists(role_id: number, acode_id: number): boolean {
     for (let ra of this.role_acode) {
       if (ra.role_id == role_id && ra.acode_id == acode_id) {
-        return "+";
+        return true;
       }
     }
-    return "";
+    return false;
   }
 
   getRoleAcode(): void {
-    this.roleAcodeService.getRoleAcode().then(role_acode => this.role_acode = role_acode);
+    this.roleAcodeService.getRoleAcode().then(
+      role_acode => {
+        this.role_acode = role_acode;
+        this.initCells();
+      });
   }
 
   getRoles(): void {
