@@ -1,50 +1,38 @@
-.roles {
-  margin: 0 0 2em 0;
-  list-style-type: none;
-  padding: 0;
-  width: 20em;
+md-list {
+  border:solid 1px #eee;
+  padding-top:0;
 }
-.roles li {
+md-list-item {
   cursor: pointer;
-  position: relative;
-  left: 0;
-  background-color: #EEE;
-  margin: .5em;
-  padding: .3em 0;
-  height: 1.6em;
-  border-radius: 4px;
 }
-.roles li.selected:hover {
-  background-color: #BBD8DC !important;
+
+.badge {
   color: white;
-}
-.roles li:hover {
-  color: #607D8B;
-  background-color: #DDD;
-  left: .1em;
-}
-.roles .text {
-  position: relative;
-  top: -3px;
-}
-.roles .badge {
+  background-color: #673ab7; /* accent #ffd740 primary #673ab7 warn #f44336 */
   display: inline-block;
-  font-size: small;
-  color: white;
-  padding: 0.8em 0.7em 0 0.7em;
-  background-color: #607D8B;
-  line-height: 1em;
-  position: relative;
-  left: -1px;
-  top: -4px;
-  height: 1.8em;
-  margin-right: .8em;
+  height: 2em;
+  line-height: 2em;
+  padding-right: 0.8em;
+  padding-left: 0.8em;
   border-radius: 4px 0 0 4px;
 }
+.text {
+  display: inline-block;
+  height: 2em;
+  line-height: 2em;
+  width: 20em;
+  padding-left: 0.8em;
+  /*padding: 1em 0.8em 0 0.8em;*/
+}
+.text:hover {
+  background-color: #eee;
+  color:black;
+}
+
 button.delete {
   float:right;
   margin-top: 2px;
   margin-right: .8em;
-  background-color: gray !important;
+  background-color: lightgray !important;
   color:white;
 }

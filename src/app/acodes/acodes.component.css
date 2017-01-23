@@ -1,0 +1,38 @@
+md-list {
+  border:solid 1px #eee;
+  padding-top:0;
+}
+md-list-item {
+  cursor: pointer;
+}
+
+.badge {
+  color: white;
+  background-color: #673ab7; /* accent #ffd740 primary #673ab7 warn #f44336 */
+  display: inline-block;
+  height: 2em;
+  line-height: 2em;
+  padding-right: 0.8em;
+  padding-left: 0.8em;
+  border-radius: 4px 0 0 4px;
+}
+.text {
+  display: inline-block;
+  height: 2em;
+  line-height: 2em;
+  width: 20em;
+  padding-left: 0.8em;
+  /*padding: 1em 0.8em 0 0.8em;*/
+}
+.text:hover {
+  background-color: #eee;
+  color:black;
+}
+
+button.delete {
+  float:right;
+  margin-top: 2px;
+  margin-right: .8em;
+  background-color: lightgray !important;
+  color:white;
+}

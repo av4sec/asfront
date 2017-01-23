@@ -1,0 +1,12 @@
+app-roles {
+  width: 40%;
+  display: inline-block;
+  margin: 1em;
+  vertical-align: top;
+}
+app-acodes {
+  width: 40%;
+  display: inline-block;
+  margin: 1em;
+  vertical-align: top;
+}

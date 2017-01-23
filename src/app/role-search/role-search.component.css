@@ -1,0 +1,7 @@
+#search-component md-list {
+  border:solid 1px #eee;
+  padding-top:0;
+}
+#search-component md-list-item:hover {
+  background-color: #eee;
+}
