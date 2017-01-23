@@ -1,0 +1,7 @@
+<ng-container *ngIf="cell.constructor.name == 'RoleAcodeCell'">
+  <md-button-toggle [checked]="cell.getChecked()" (change)="cell.changed()"></md-button-toggle>
+</ng-container>
+
+<ng-container *ngIf="cell.constructor.name != 'RoleAcodeCell'">
+  {{ cell.getText() }}
+</ng-container>
