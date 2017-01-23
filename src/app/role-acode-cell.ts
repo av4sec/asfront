@@ -14,6 +14,10 @@ export class Cell {
   getChecked(): boolean {
     return false;
   }
+
+  changed(): void {
+
+  }
 }
 
 // -----------------------------------------------------------------------------
@@ -89,5 +93,17 @@ export class RoleAcodeCell extends Cell {
 
   getChecked(): boolean {
     return this.checked;
+  }
+
+  getRoleId(): number {
+    return this.role_id;
+  }
+
+  getAcodeId(): number {
+    return this.acode_id;
+  }
+
+  changed(): void {
+    this.checked = !this.checked;
   }
 }

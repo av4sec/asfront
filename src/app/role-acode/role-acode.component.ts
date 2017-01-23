@@ -55,8 +55,7 @@ export class RoleAcodeComponent implements OnInit {
       for (var c = 1; c < this.numberOfCols; c++) {
         var role_id: number = this.roles[c-1].id;
         var acode_id: number = this.acodes[r-1].id;
-        var role_acode_exists: boolean;
-        role_acode_exists = this.roleAcodeExists(role_id, acode_id);
+        var role_acode_exists: boolean = this.roleAcodeExists(role_id, acode_id);
         this.cells[r][c] = new RoleAcodeCell(role_id, acode_id, role_acode_exists);
       }
     }
@@ -95,5 +94,44 @@ export class RoleAcodeComponent implements OnInit {
         this.numberOfRows = acodes.length + 1;
         this.initCells();
       });
+  }
+
+  save(): void {
+    for (var r = 1; r < this.numberOfRows; r++) {
+      for (var c = 1; c < this.numberOfCols; c++) {
+        var cell = <RoleAcodeCell>this.cells[r][c];
+        var role_id: number = cell.getRoleId();
+        var acode_id: number = cell.getAcodeId();
+        var checked: boolean = cell.getChecked();
+        var role_acode_exists: boolean = this.roleAcodeExists(role_id, acode_id);
+        if (checked != role_acode_exists) {
+          console.log(role_id+", "+acode_id+" : "+checked+" ["+role_acode_exists+"]");
+          if (checked) {
+            // add role-acode relation
+            this.add(role_id, acode_id);
+          }
+          if (role_acode_exists) {
+            // remove role-acode relation
+            this.delete(role_id, acode_id);
+          }
+        }
+      }
+    }
+  }
+
+  add(role_id: number, acode_id: number): void {
+    this.roleAcodeService.create(role_id, acode_id)
+      .then(roleAcode => {
+        // breakpoint (?)
+        // console.log(roleAcode);
+      });
+  }
+
+  delete(role_id: number, acode_id: number): void {
+    this.roleAcodeService.delete(role_id, acode_id)
+    .then(roleAcode => {
+      // breakpoint (?)
+      // console.log(roleAcode);
+    });
   }
 }
