@@ -13,6 +13,7 @@ export class AppComponent {
     { route: "/role", name: "Roles" },
     { route: "/role/search", name: "Role Search" },
     { route: "/acode", name: "Acodes" },
+    { route: "/role-acode", name: "Role-Acode" },
   ]
 
   constructor(
