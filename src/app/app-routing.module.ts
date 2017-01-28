@@ -6,6 +6,7 @@ import { RolesComponent }      from './roles/roles.component';
 import { RoleDetailComponent }  from './role-detail/role-detail.component';
 import { RoleSearchComponent }  from './role-search/role-search.component';
 import { RoleAcodeComponent }  from './role-acode/role-acode.component';
+import { DataComponent } from './data/data.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'role', component: RolesComponent },
   { path: 'role/search', component: RoleSearchComponent },
   { path: 'role/:id', component: RoleDetailComponent },
-  { path: 'role-acode', component: RoleAcodeComponent }
+  { path: 'role-acode', component: RoleAcodeComponent },
+  { path: 'data', component: DataComponent }
 ];
 
 @NgModule({

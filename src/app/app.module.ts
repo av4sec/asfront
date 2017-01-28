@@ -20,6 +20,8 @@ import { AcodesComponent }      from './acodes/acodes.component';
 import { RoleAcodeComponent }   from './role-acode/role-acode.component';
 import { RoleAcodeCtrlComponent } from './role-acode-ctrl/role-acode-ctrl.component';
 import { RoleAcodeCellComponent } from './role-acode-cell/role-acode-cell.component';
+import { DataComponent } from './data/data.component';
+import { DataService } from './data.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { RoleAcodeCellComponent } from './role-acode-cell/role-acode-cell.compon
     AcodesComponent,
     RoleAcodeComponent,
     RoleAcodeCtrlComponent,
-    RoleAcodeCellComponent
+    RoleAcodeCellComponent,
+    DataComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,7 @@ import { RoleAcodeCellComponent } from './role-acode-cell/role-acode-cell.compon
     AppRoutingModule,
     MaterialModule.forRoot()
   ],
-  providers: [RoleService, RoleSearchService, AcodeService, RoleAcodeService],
+  providers: [RoleService, RoleSearchService, AcodeService, RoleAcodeService, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
