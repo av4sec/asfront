@@ -25,6 +25,9 @@ export class RoleAcodeComponent implements OnInit {
   roles: Role[];
   acodes: Acode[];
 
+  role_id: number[] = [2, 3];
+  acode_id: number[] = [3, 4, 5];
+
   numberOfCols: number = 1;
   numberOfRows: number = 1;
 
@@ -38,9 +41,9 @@ export class RoleAcodeComponent implements OnInit {
   ) {  }
 
   ngOnInit(): void {
-    this.getRoleAcode();
-    this.getRoles();
-    this.getAcodes();
+    this.getRoles(this.role_id);
+    this.getAcodes(this.acode_id);
+    this.getRoleAcode(this.role_id, this.acode_id);
   }
 
   initCells(): void {
@@ -62,24 +65,23 @@ export class RoleAcodeComponent implements OnInit {
   }
 
   roleAcodeExists(role_id: number, acode_id: number): boolean {
-    for (let ra of this.role_acode) {
-      if (ra.role_id == role_id && ra.acode_id == acode_id) {
-        return true;
-      }
-    }
+    if (this.role_acode)
+      for (let ra of this.role_acode)
+        if (ra.role_id == role_id && ra.acode_id == acode_id)
+          return true;
     return false;
   }
 
-  getRoleAcode(): void {
-    this.roleAcodeService.getRoleAcode().then(
+  getRoleAcode(role_id: number[], acode_id: number[]): void {
+    this.roleAcodeService.getRoleAcode(role_id, acode_id).then(
       role_acode => {
         this.role_acode = role_acode;
         this.initCells();
       });
   }
 
-  getRoles(): void {
-    this.roleService.getRoles().then(
+  getRoles(id: number[]): void {
+    this.roleService.getRoles(id).then(
       roles => {
         this.roles = roles;
         this.numberOfCols = roles.length + 1;
@@ -87,8 +89,8 @@ export class RoleAcodeComponent implements OnInit {
     });
   }
 
-  getAcodes(): void {
-    this.acodeService.getAcodes().then(
+  getAcodes(id: number[]): void {
+    this.acodeService.getAcodes(id).then(
       acodes => {
         this.acodes = acodes;
         this.numberOfRows = acodes.length + 1;

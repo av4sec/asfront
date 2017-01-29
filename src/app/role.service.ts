@@ -1,5 +1,5 @@
-import { Injectable }    from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { Injectable } from '@angular/core';
+import { Headers, Http, URLSearchParams } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -12,8 +12,16 @@ export class RoleService {
 
   constructor(private http: Http) { }
 
-  getRoles(): Promise<Role[]> {
-    return this.http.get(this.rolesUrl)
+  getRoles(id?: number[]): Promise<Role[]> {
+    var role_id: number[] = [];
+    if (id)
+      role_id = id;
+
+    let params = new URLSearchParams();
+    for (var i=0; i < role_id.length; i++)
+      params.append('id', String(role_id[i]));
+
+    return this.http.get(this.rolesUrl, { search: params })
       .toPromise()
       .then(response => response.json() as Role[])
       .catch(this.handleError);

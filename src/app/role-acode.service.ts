@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http, RequestOptions } from '@angular/http';
+import { Headers, Http, RequestOptions, URLSearchParams } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -12,8 +12,24 @@ export class RoleAcodeService {
 
   constructor(private http: Http) { }
 
-  getRoleAcode(): Promise<RoleAcode[]> {
-    return this.http.get(this.roleAcodeUrl)
+  getRoleAcode(rid?: number[], aid?: number[]): Promise<RoleAcode[]> {
+    var role_id: number[] = [];
+    if (rid)
+      role_id = rid;
+
+    var acode_id: number[] = [];
+    if (aid)
+      acode_id = aid;
+
+    let params = new URLSearchParams();
+
+    for (var i=0; i < role_id.length; i++)
+      params.append('role_id', String(role_id[i]));
+
+    for (var i=0; i < acode_id.length; i++)
+      params.append('acode_id', String(acode_id[i]));
+
+    return this.http.get(this.roleAcodeUrl, { search: params })
       .toPromise()
       .then(response => response.json() as RoleAcode[])
       .catch(this.handleError);
