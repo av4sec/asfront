@@ -41,6 +41,17 @@ export class RoleAcodeComponent implements OnInit {
   ) {  }
 
   ngOnInit(): void {
+    this.init();
+  }
+
+  init(): void {
+    this.cells = [];
+    this.numberOfCols = 1;
+    this.numberOfRows = 1;
+    this.role_acode = [];
+    this.roles = [];
+    this.acodes = [];
+
     this.getRoles(this.role_id);
     this.getAcodes(this.acode_id);
     this.getRoleAcode(this.role_id, this.acode_id);
@@ -135,5 +146,26 @@ export class RoleAcodeComponent implements OnInit {
       // breakpoint (?)
       // console.log(roleAcode);
     });
+  }
+
+  set_01(): void {
+    this.role_id = [2, 3];
+    this.acode_id = [3, 4, 5];
+    this.init();
+    console.log("set_01");
+  }
+
+  set_02(): void {
+    this.role_id = [1, 2, 3];
+    this.acode_id = [1, 2, 3, 4, 5];
+    this.init();
+    console.log("set_02");
+  }
+
+  set_03(): void {
+    this.role_id = [1, 2];
+    this.acode_id = [1, 2];
+    this.init();
+    console.log("set_03");
   }
 }
