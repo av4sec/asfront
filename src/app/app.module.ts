@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from '@angular/material';
+import { MdIconModule, MdIconRegistry } from '@angular/material/icon';
 import 'hammerjs';
 
 import './rxjs-extensions';
@@ -41,9 +42,10 @@ import { DataService } from './data.service';
     FormsModule,
     HttpModule,
     AppRoutingModule,
+    MdIconModule,
     MaterialModule.forRoot()
   ],
-  providers: [RoleService, RoleSearchService, AcodeService, RoleAcodeService, DataService],
+  providers: [MdIconRegistry, RoleService, RoleSearchService, AcodeService, RoleAcodeService, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

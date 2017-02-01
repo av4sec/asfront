@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { MdIcon, MdIconRegistry } from  '@angular/material/icon';
+
 import { Role } from '../role';
 import { RoleService } from '../role.service';
 
@@ -16,8 +18,12 @@ export class RolesComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private roleService: RoleService
-  ) { }
+    private roleService: RoleService,
+    private mdIconRegistry: MdIconRegistry
+  ) {
+    mdIconRegistry
+      .addSvgIcon('close', '/icons/navigation/ic_close_36px.svg');
+  }
 
   ngOnInit(): void {
     this.getRoles();
