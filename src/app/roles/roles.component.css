@@ -8,7 +8,7 @@ md-list-item {
 
 .badge {
   color: white;
-  background-color: #673ab7; /* accent #ffd740 primary #673ab7 warn #f44336 */
+  background-color: #3f51b5;
   display: inline-block;
   height: 2em;
   line-height: 2em;
