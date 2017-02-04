@@ -1,5 +1,8 @@
-<ul class="acodes">
-  <li *ngFor="let acode of acodes"  (click)="gotoDetail(acode.id)">
-    <span class="badge">{{acode.id}}</span> {{acode.name}} [ {{acode.extid}} / {{acode.charid}} ]
-  </li>
-</ul>
+<md-card>
+  <md-card-title>Access Codes</md-card-title>
+  <md-list class="acodes">
+    <md-list-item *ngFor="let acode of acodes"  (click)="gotoDetail(acode.id)">
+      <span class="badge">{{acode.id}}</span><span class="text"> {{acode.name}} [ {{acode.extid}} / {{acode.charid}} ]</span>
+    </md-list-item>
+  </md-list>
+</md-card>

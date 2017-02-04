@@ -1,19 +1,22 @@
-<div *ngIf="role">
-  <h2>{{role.name}} details!</h2>
-  <div>
-    <label>id: </label>{{role.id}}</div>
-    <div>
-      <label>extid: </label>
-      <input [(ngModel)]="role.extid" placeholder="name" />
-    </div>
-    <div>
-      <label>charid: </label>
-      <input [(ngModel)]="role.charid" placeholder="name" />
-    </div>
-    <div>
-      <label>name: </label>
-      <input [(ngModel)]="role.name" placeholder="name" />
-    </div>
-    <button (click)="goBack()">Back</button>
-    <button (click)="save()">Save</button>
-</div>
+<md-card id="role-detail-component" *ngIf="role">
+  <md-card-title>Role details</md-card-title>
+  <md-card-content>
+    <md-input-container>
+      <input md-input [(ngModel)]="role.id" placeholder="ID" type="text" autocomplete="off" disabled="disabled"/>
+    </md-input-container>
+    <md-input-container>
+      <input md-input [(ngModel)]="role.extid" placeholder="EXT ID" type="text" autocomplete="off" />
+    </md-input-container>
+    <br/>
+    <md-input-container>
+      <input md-input [(ngModel)]="role.charid" placeholder="CHAR ID" type="text" autocomplete="off" />
+    </md-input-container>
+    <md-input-container>
+      <input md-input [(ngModel)]="role.name" placeholder="NAME" type="text" autocomplete="off"/>
+    </md-input-container>
+    <md-card-actions>
+      <button md-button (click)="goBack()">Back</button>
+      <button md-button (click)="save()">Save</button>
+    </md-card-actions>
+  </md-card-content>
+</md-card>
