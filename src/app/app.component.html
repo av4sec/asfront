@@ -1,12 +1,10 @@
-<h1>
-  {{title}}
-</h1>
-<nav>
-  <a routerLink="/main" routerLinkActive="active">Role-Acode-Ctrl</a>
-  <a routerLink="/role" routerLinkActive="active">Roles</a>
-  <a routerLink="/role/search" routerLinkActive="active">Role Search</a>
-  <a routerLink="/acode" routerLinkActive="active">Acodes</a>
-  <a routerLink="/role-acode" routerLinkActive="active">Role-Acode</a>
-  <a routerLink="/data" routerLinkActive="active">Data</a>
-</nav>
-<router-outlet></router-outlet>
+<md-toolbar color="primary">
+  <h1>{{title}}</h1>
+  <span class="app-toolbar-filler"></span>
+</md-toolbar>
+<div class="app-content">
+  <md-card>
+     <button md-raised-button *ngFor="let link of links" (click)="onClick(link.route)">{{ link.name }}</button>
+  </md-card>
+  <router-outlet></router-outlet>
+</div>
