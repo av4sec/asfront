@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { MdIcon, MdIconRegistry } from  '@angular/material/icon';
 
+import { RoleWidgetComponent } from '../role-widget/role-widget.component';
 import { Role } from '../role';
 import { RoleService } from '../role.service';
 

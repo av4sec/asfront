@@ -1,0 +1,47 @@
+.role-widget {
+  border: 1px solid black;
+  border-radius: 5px;
+  /*width: 25em;
+  height: 2em;*/
+  display: inline-block;
+  align-content: center;
+}
+.role-widget form {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+.badge {
+  color: white;
+  background-color: #3f51b5;
+  display: inline-block;
+  height: 2em;
+  line-height: 2em;
+  padding-right: 0.8em;
+  padding-left: 0.8em;
+  border-radius: 4px 0 0 4px;
+}
+.search-result .badge {
+  color: black;
+  background-color: lightgray;
+}
+.text {
+  display: inline-block;
+  height: 2em;
+  line-height: 2em;
+  /*width: 20em;*/
+  padding-left: 0.8em;
+  padding-right: 0.8em;
+  /*padding: 1em 0.8em 0 0.8em;*/
+}
+.text:hover {
+  background-color: #eee;
+  color:black;
+}
+.md-list {
+  border: solid 1px red;
+}
+.md-list-item {
+  border: solid 1px green;
+  height: 40px;
+  padding: 0;
+}

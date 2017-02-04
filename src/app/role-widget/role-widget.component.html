@@ -1,3 +1,53 @@
-<p>
-  role-widget works!
-</p>
+<div *ngIf="role" class="role-widget">
+  <span class="badge">{{role.id}}</span>
+  <form *ngIf="editing" class="editForm">
+    <md-input-container>
+      <input md-input [(ngModel)]="role.name" name="roleName" placeholder="role name" >
+    </md-input-container>
+    <md-input-container>
+      <input md-input [(ngModel)]="role.extid" name="extID" placeholder="ext id" >
+    </md-input-container>
+    <md-input-container>
+      <input md-input [(ngModel)]="role.charid" name="charID" placeholder="char id" >
+    </md-input-container>
+    <button *ngIf="showUpdateButton" md-icon-button (click)="update()"><md-icon>update</md-icon></button>
+  </form>
+  <span *ngIf="!editing" class="text">{{role.name}} [ {{role.extid}} / {{role.charid}} ]</span>
+  <button *ngIf="showDeleteButton" md-icon-button (click)="delete(); $event.stopPropagation()"><md-icon>delete</md-icon></button>
+</div>
+<div *ngIf="!role && showSearchButton" class="role-widget">
+  <form *ngIf="showSearchButton" class="searchForm">
+    <md-input-container>
+      <input md-input [(ngModel)]="fieldText" name="roleNameOrSearchTerm" placeholder="{{fieldPlaceholder}}" >
+    </md-input-container>
+    <button md-icon-button (click)="search()"><md-icon>search</md-icon></button>
+  </form>
+  <div *ngIf="searching">
+    <md-list>
+      <md-list-item *ngFor="let role of matchingRoles | async"
+           (click)="selectMatchingRole(role)" class="search-result" >
+         <span class="badge">{{role.id}}</span><span class="text">{{role.name}} [ {{role.extid}} / {{role.charid}} ]</span>
+      </md-list-item>
+    </md-list>
+    <form *ngIf="showAddButton" class="addForm">
+      <hr/>
+      <p>Add a new role:</p>
+      <md-input-container>
+        <input md-input [(ngModel)]="prototype.name" name="newRoleName" placeholder="name" >
+      </md-input-container>
+      <br/>
+      <md-input-container>
+        <input md-input [(ngModel)]="prototype.extid" name="newRoleExtId" placeholder="ext id" >
+      </md-input-container>
+      <br/>
+      <md-input-container>
+        <input md-input [(ngModel)]="prototype.charid" name="newRoleCharId" placeholder="char id" >
+      </md-input-container>
+      <br/>
+      <button md-icon-button (click)="create()"><md-icon>add</md-icon></button>
+    </form>
+  </div>
+</div>
+<div *ngIf="!role && !showSearchButton && !showAddButton" class="role-widget">
+  <span class="badge"> </span><span class="text">undefined role</span>
+</div>

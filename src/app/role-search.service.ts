@@ -8,6 +8,7 @@ import { Role }           from './role';
 export class RoleSearchService {
   constructor(private http: Http) { }
   search(term: string): Observable<Role[]> {
+    console.log("role-search: starting search for " + term);
     return this.http
       .get(`api/role/search?q=${term}`)
       .map((r: Response) => r.json() as Role[]);
