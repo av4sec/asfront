@@ -24,6 +24,7 @@ import { RoleAcodeCtrlComponent } from './role-acode-ctrl/role-acode-ctrl.compon
 import { RoleAcodeCellComponent } from './role-acode-cell/role-acode-cell.component';
 import { DataComponent } from './data/data.component';
 import { DataService } from './data.service';
+import { RoleWidgetComponent } from './role-widget/role-widget.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { DataService } from './data.service';
     RoleAcodeComponent,
     RoleAcodeCtrlComponent,
     RoleAcodeCellComponent,
-    DataComponent
+    DataComponent,
+    RoleWidgetComponent
   ],
   imports: [
     BrowserModule,
