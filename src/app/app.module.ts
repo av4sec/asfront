@@ -22,6 +22,7 @@ import { RoleAcodeCtrlComponent } from './role-acode-ctrl/role-acode-ctrl.compon
 import { RoleAcodeCellComponent } from './role-acode-cell/role-acode-cell.component';
 import { DataComponent } from './data/data.component';
 import { DataService } from './data.service';
+import { SearchDialogComponent } from './search-dialog/search-dialog.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { DataService } from './data.service';
     RoleAcodeComponent,
     RoleAcodeCtrlComponent,
     RoleAcodeCellComponent,
-    DataComponent
+    DataComponent,
+    SearchDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +45,7 @@ import { DataService } from './data.service';
     MaterialModule.forRoot()
   ],
   providers: [RoleService, RoleSearchService, AcodeService, RoleAcodeService, DataService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [SearchDialogComponent]
 })
 export class AppModule { }

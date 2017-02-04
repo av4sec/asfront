@@ -13,6 +13,9 @@ import { AcodeService } from '../acode.service';
 import { Cell, TextCell, RoleCell, AcodeCell, RoleAcodeCell } from '../role-acode-cell';
 import { RoleAcodeCellComponent } from '../role-acode-cell/role-acode-cell.component';
 
+import { MdDialog, MdDialogRef } from '@angular/material';
+import { SearchDialogComponent } from '../search-dialog/search-dialog.component';
+
 @Component({
   selector: 'app-role-acode',
   templateUrl: './role-acode.component.html',
@@ -33,11 +36,14 @@ export class RoleAcodeComponent implements OnInit {
 
   cells: Cell[][] = [];
 
+  dialogRef: MdDialogRef<SearchDialogComponent>;
+
   constructor(
     private router: Router,
     private roleAcodeService: RoleAcodeService,
     private roleService: RoleService,
-    private acodeService: AcodeService
+    private acodeService: AcodeService,
+    public dialog: MdDialog
   ) {  }
 
   ngOnInit(): void {
@@ -148,24 +154,16 @@ export class RoleAcodeComponent implements OnInit {
     });
   }
 
-  set_01(): void {
-    this.role_id = [2, 3];
-    this.acode_id = [3, 4, 5];
-    this.init();
-    console.log("set_01");
-  }
+  openDialog(): void {
+    this.dialogRef = this.dialog.open(SearchDialogComponent);
 
-  set_02(): void {
-    this.role_id = [1, 2, 3];
-    this.acode_id = [1, 2, 3, 4, 5];
-    this.init();
-    console.log("set_02");
-  }
-
-  set_03(): void {
-    this.role_id = [1, 2];
-    this.acode_id = [1, 2];
-    this.init();
-    console.log("set_03");
+    this.dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.role_id = result[0];
+        this.acode_id = result[1];
+        this.init();
+      }
+      this.dialogRef = null;
+    });
   }
 }
