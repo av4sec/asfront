@@ -2,8 +2,10 @@
   <md-card-title>role-acode-ctrl Matrix</md-card-title>
 
   <md-card-content>
-  <app-roles></app-roles>
-
-  <app-acodes></app-acodes>
+    <ul>
+      <li>A role: <role-widget></role-widget></li>
+      <li>Choose a role: <role-widget [allowSelect]="true"></role-widget></li>
+      <li>Choose or add a role: <role-widget [allowAdd]="true" [allowSelect]="true"></role-widget></li>
+    </ul>
   </md-card-content>
 </md-card>
