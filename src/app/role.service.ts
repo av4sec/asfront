@@ -18,7 +18,7 @@ export class RoleService {
       role_id = id;
 
     let params = new URLSearchParams();
-    for (var i=0; i < role_id.length; i++)
+    for (var i = 0; i < role_id.length; i++)
       params.append('id', String(role_id[i]));
 
     return this.http.get(this.rolesUrl, { search: params })
@@ -42,16 +42,21 @@ export class RoleService {
       .catch(this.handleError);
   }
 
-  create(name: string): Promise<Role> {
-    var role: Role = {
-      id: 0, extid: 1, name: name,
-      charid: name.toLowerCase().replace(" ", "_").substring(0, 10)
-    };
+  create(role: Role): Promise<Role> {
+    role.id = 0;
     return this.http
       .post(this.rolesUrl, JSON.stringify(role), { headers: this.headers })
       .toPromise()
       .then(res => res.json() as Role)
       .catch(this.handleError);
+  }
+
+  createRoleWithName(name: string): Promise<Role> {
+    var role: Role = {
+      id: 0, extid: 1, name: name,
+      charid: name.toLowerCase().replace(" ", "_").substring(0, 10)
+    };
+    return this.create(role);
   }
 
   update(role: Role): Promise<Role> {

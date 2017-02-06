@@ -41,7 +41,7 @@ export class RolesComponent implements OnInit {
   add(name: string): void {
     name = name.trim();
     if (!name) { return; }
-    this.roleService.create(name)
+    this.roleService.createRoleWithName(name)
       .then(role => {
         this.roles.push(role);
       });
