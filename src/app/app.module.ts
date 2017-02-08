@@ -25,6 +25,8 @@ import { RoleAcodeCellComponent } from './role-acode-cell/role-acode-cell.compon
 import { DataComponent } from './data/data.component';
 import { DataService } from './data.service';
 import { SearchDialogComponent } from './search-dialog/search-dialog.component';
+import { AcodeSearchComponent } from './acode-search/acode-search.component';
+import { AcodeSearchService }    from './acode-search.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { SearchDialogComponent } from './search-dialog/search-dialog.component';
     RoleAcodeCtrlComponent,
     RoleAcodeCellComponent,
     DataComponent,
-    SearchDialogComponent
+    SearchDialogComponent,
+    AcodeSearchComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,8 @@ import { SearchDialogComponent } from './search-dialog/search-dialog.component';
     MdIconModule,
     MaterialModule.forRoot()
   ],
-  providers: [MdIconRegistry, RoleService, RoleSearchService, AcodeService, RoleAcodeService, DataService],
+  providers: [MdIconRegistry, RoleService, RoleSearchService, AcodeService,
+    RoleAcodeService, DataService, AcodeSearchService],
   bootstrap: [AppComponent],
   entryComponents: [SearchDialogComponent]
 })
