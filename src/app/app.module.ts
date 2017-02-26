@@ -47,8 +47,8 @@ import { AcodeSearchService }    from './acode-search.service';
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    MdIconModule,
-    MaterialModule.forRoot()
+    MaterialModule,
+    MdIconModule
   ],
   providers: [MdIconRegistry, RoleService, RoleSearchService, AcodeService,
     RoleAcodeService, DataService, AcodeSearchService],

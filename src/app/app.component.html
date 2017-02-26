@@ -4,7 +4,9 @@
 </md-toolbar>
 <div class="app-content">
   <md-card>
+    <md-card-content>
      <button md-raised-button *ngFor="let link of links" (click)="onClick(link.route)">{{ link.name }}</button>
+   </md-card-content>
   </md-card>
   <router-outlet></router-outlet>
 </div>
