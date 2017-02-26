@@ -1,7 +1,7 @@
 <md-card id="search-component">
   <md-card-title>Acode Search</md-card-title>
   <md-input-container>
-    <input md-input placeholder="Search term" #searchBox id="search-box" value="{{initialTerm}}" autocomplete="off" autofocus
+    <input mdInput placeholder="Search term" #searchBox id="search-box" value="{{initialTerm}}" autocomplete="off" autofocus
     (keyup)="search(searchBox.value)" />
   </md-input-container>
   <md-list>
